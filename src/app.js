@@ -1,6 +1,7 @@
 import path from 'path'
 import Koa2 from 'koa'
 import KoaStatic from 'koa-static2'
+import KoaBody from 'koa-body'
 import MainRoutes from './routes/main-routes'
 import {
   System as SystemConfig
@@ -21,6 +22,12 @@ app
     ctx.set('Access-Control-Allow-Credentials', true)
     return next()
   })
+  .use(KoaBody({
+    multipart: false,
+    json: true,
+    jsonStrict: true,
+    strict: true
+  }))
   .use(KoaStatic('statics', path.resolve(__dirname, '../statics')))
   .use(MainRoutes.routes())
   .use(MainRoutes.allowedMethods)
