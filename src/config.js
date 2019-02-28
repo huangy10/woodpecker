@@ -1,5 +1,9 @@
 import path from 'path'
 
+export let ViewCountConfig = {
+  remove_query_param: true
+}
+
 export let System = {
   API_server_type: 'http://', // API服务器协议类型,包含"http://"或"https://"
   API_server_host: 'localhost', // API服务器暴露的域名地址,请勿添加"http://"
@@ -16,10 +20,12 @@ export let System = {
 export let DB = {
   host: 'localhost', // 服务器地址
   port: 3306, // 数据库端口号
-  username: 'admin', // 数据库用户名
-  password: 'admin888', // 数据库密码
-  database: 'development', // 数据库名称
-  prefix: 'api_' // 默认"api_"
+  user: 'root', // 数据库用户名
+  // password: 'admin888', // 数据库密码
+  database: 'woodpecker', // 数据库名称
+  // prefix: 'api_' // 默认"api_"
+  acquireTimeout: 300,
+  connectionTimeout: 2000
 }
 
 export let SendEmail = {

@@ -1,6 +1,6 @@
 import mysql from 'promise-mysql'
-import {System as SystemConfig} from '../config.js'
+import {DB as DBConfig} from '../config.js'
 
-var pool = mysql.createPool(SystemConfig.DB)
+var pool = mysql.createPool(DBConfig)
 
 export default pool
